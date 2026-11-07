@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IndieForge — каталог игр</title>
+  <meta name="description" content="IndieForge — живой каталог инди-игр, AAA и MMO: поиск, фильтры по категориям и годам, уникальные карточки и советник." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="image" href="assets/img/games/wide/hades2.jpg" fetchpriority="high" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css?v=20261104f" />
+  <link rel="stylesheet" href="assets/css/editorial.css?v=20261104f" />
+  <link rel="stylesheet" href="assets/css/home.css?v=20261104f" />
+</head>
+<body data-page="index">
+  <a class="skip-link" href="#main">Перейти к каталогу</a>
+  <header data-site-header></header>
+
+  <main class="page" id="main">
+    <section class="catalog-hero" data-catalog-hero aria-label="IndieForge">
+      <div class="catalog-hero__bg" aria-hidden="true">
+        <img data-hero-image src="assets/img/games/wide/hades2.jpg" alt="" fetchpriority="high" decoding="async" />
+      </div>
+      <div class="catalog-hero__veil" aria-hidden="true"></div>
+
+      <div class="catalog-hero__inner">
+        <div class="catalog-hero__copy">
+          <p class="eyebrow"><span class="eyebrow__dot"></span> каталог · <span data-catalog-total>75</span> игр</p>
+          <h1>Игры, в которые<br />хочется остаться</h1>
+          <p class="catalog-hero__lead">
+            Инди, большие релизы и MMO без случайных подборок. Ищите по названию,
+            фильтруйте по категориям и годам — и открывайте карточку с сюжетом,
+            требованиями и ссылкой на Steam.
+          </p>
+
+          <div class="catalog-hero__stats">
+            <div class="hero-stat">
+              <strong data-catalog-total>75</strong>
+              <span>игр в каталоге</span>
+            </div>
+            <div class="hero-stat">
+              <strong>5</strong>
+              <span>категорий</span>
+            </div>
+            <div class="hero-stat">
+              <strong data-catalog-years>2012—2026</strong>
+              <span>годы выхода</span>
+            </div>
+          </div>
+        </div>
+
+        <a class="catalog-feature" data-feature-link href="game.html?id=sara">
+          <span class="catalog-feature__label">выбор редакции</span>
+          <h2 data-feature-title>Sara</h2>
+          <p data-feature-tagline>Психологический хоррор о памяти, которая не хочет отпускать.</p>
+          <span class="catalog-feature__meta" data-feature-meta>2025 · ★ 8.4</span>
+          <span class="catalog-feature__cta">Открыть карточку <span aria-hidden="true">→</span></span>
+        </a>
+      </div>
+    </section>
+
+    <section class="showcase" aria-labelledby="showcase-title">
+      <div class="container showcase__head">
+        <div>
+          <p class="eyebrow"><span class="eyebrow__dot"></span> редакционная витрина</p>
+          <h2 id="showcase-title">Сейчас в фокусе</h2>
+          <p class="showcase__lead">Семь игр, ради которых стоит освободить вечер. Листайте вбок — или доверьтесь таймеру.</p>
+        </div>
+        <div class="showcase__controls">
+          <button class="showcase__arrow" type="button" data-showcase-prev aria-label="Предыдущая игра">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M14.5 5 7.5 12l7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <span class="showcase__counter" data-showcase-counter>01 / 07</span>
+          <button class="showcase__arrow" type="button" data-showcase-next aria-label="Следующая игра">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m9.5 5 7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="showcase__viewport" data-showcase>
+        <div class="showcase__track" data-showcase-track></div>
+      </div>
+      <div class="container showcase__foot">
+        <div class="showcase__progress"><span data-showcase-progress></span></div>
+        <a class="text-link" href="index.html#catalog-anchor">Смотреть весь каталог <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <div class="catalog" id="catalog-anchor">
+      <aside class="catalog-sidebar" data-catalog-sidebar aria-label="Фильтры каталога">
+        <div class="filter-card">
+          <div class="filter-card__head">
+            <h2>Категории</h2>
+            <span class="filter-card__hint">можно несколько</span>
+          </div>
+          <div class="filter-options" data-filter-categories></div>
+        </div>
+
+        <div class="filter-card">
+          <div class="filter-card__head">
+            <h2>По дате выхода</h2>
+          </div>
+          <div class="years" data-filter-years></div>
+        </div>
+
+        <button class="btn btn--ghost filter-reset" type="button" data-filter-reset>
+          Сбросить фильтры
+        </button>
+      </aside>
+
+      <section class="catalog-main" aria-label="Игры каталога">
+        <div class="catalog-toolbar">
+          <div>
+            <p class="catalog-toolbar__count" data-results-count>Найдено 75 игр</p>
+            <p class="catalog-toolbar__hint">Отобрано вручную: атмосфера, сюжет и кооператив</p>
+          </div>
+          <label class="sort-control">
+            <span>Сортировка</span>
+            <select data-sort aria-label="Сортировка игр">
+              <option value="rating">По оценке</option>
+              <option value="new">Сначала новые</option>
+              <option value="old">Сначала старые</option>
+              <option value="title">По названию</option>
+              <option value="steam">По оценке Steam</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="active-filters" data-active-filters hidden aria-label="Активные фильтры"></div>
+
+        <div class="games-grid" data-games-grid></div>
+
+        <div class="empty-state catalog-empty" data-catalog-empty hidden>
+          <span class="empty-state__icon" aria-hidden="true">⌕</span>
+          <h2 data-empty-title>Под эти фильтры ничего не подходит</h2>
+          <p>Попробуйте убрать год или категорию — в каталоге точно есть что-то ещё.</p>
+          <button class="btn btn--primary" type="button" data-reset-all>Показать все игры</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer data-site-footer></footer>
+
+  <script src="assets/js/data.js?v=20261104f"></script>
+  <script src="assets/js/data-extra.js?v=20261104f"></script>
+  <script src="assets/js/store.js?v=20261104f"></script>
+  <script src="assets/js/common.js?v=20261104f"></script>
+  <script src="assets/js/home.js?v=20261104f"></script>
+  <script src="assets/js/catalog.js?v=20261104f"></script>
+</body>
+</html>

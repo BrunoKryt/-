@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IndieForge — личный кабинет</title>
+  <meta name="description" content="Личный кабинет IndieForge: аватар, видео-фон, избранные игры и ответы на обращения." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css?v=20261104f" />
+  <link rel="stylesheet" href="assets/css/editorial.css?v=20261104f" />
+</head>
+<body data-page="profile">
+  <a class="skip-link" href="#main">Перейти к профилю</a>
+  <header data-site-header></header>
+
+  <main class="page" id="main">
+    <section class="profile-hero" data-profile-hero>
+      <video class="profile-hero__video" data-profile-video muted loop playsinline preload="metadata" hidden></video>
+      <div class="profile-hero__shade" aria-hidden="true"></div>
+
+      <div class="profile-hero__inner">
+        <div class="profile-avatar" data-profile-avatar>
+          <span class="profile-avatar__initials">IF</span>
+          <button class="profile-avatar__edit" type="button" data-avatar-pick aria-label="Сменить аватар" title="Сменить аватар">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M4 8h3l1.5-2h7L17 8h3v11H4V8Z" stroke-linejoin="round" />
+              <circle cx="12" cy="13" r="3.2" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="profile-identity">
+          <p class="eyebrow" data-profile-role>локальный профиль</p>
+          <h1 data-profile-name>Гость</h1>
+          <p class="profile-bio" data-profile-bio>Расскажите о себе.</p>
+          <p class="profile-email" data-profile-email hidden></p>
+
+          <div class="profile-actions">
+            <a class="btn btn--primary" href="login.html?next=profile.html" data-profile-login>Войти в аккаунт</a>
+            <a class="btn" href="admin.html" data-profile-admin hidden>Админ-панель</a>
+            <button class="btn btn--ghost" type="button" data-profile-logout hidden>Выйти</button>
+          </div>
+
+          <p class="profile-guest-hint" data-guest-hint>
+            Это локальный профиль в вашем браузере. Войдите, чтобы привязать аватар,
+            видео и избранное к аккаунту.
+          </p>
+        </div>
+
+        <div class="profile-hero__controls" aria-label="Управление видео-фоном">
+          <button class="media-button" type="button" data-video-play title="Пауза" aria-label="Пауза" disabled>
+            <svg class="media-button__pause" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+              <rect x="7" y="5" width="3.4" height="14" rx="1.2" />
+              <rect x="13.6" y="5" width="3.4" height="14" rx="1.2" />
+            </svg>
+            <svg class="media-button__play" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+              <path d="M8 5.5v13l10-6.5-10-6.5Z" />
+            </svg>
+          </button>
+          <button class="media-button" type="button" data-video-sound title="Включить звук" aria-label="Включить звук" aria-pressed="false" disabled>
+            <svg class="media-button__sound-off" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M4 9h4l5-4v14l-5-4H4V9Z" stroke-linejoin="round" />
+              <path d="m16 9 5 6M21 9l-5 6" stroke-linecap="round" />
+            </svg>
+            <svg class="media-button__sound-on" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M4 9h4l5-4v14l-5-4H4V9Z" stroke-linejoin="round" />
+              <path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" stroke-linecap="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <div class="container profile-body">
+      <div class="profile-grid">
+        <section class="panel profile-about" aria-labelledby="about-title">
+          <div class="panel-heading">
+            <p class="eyebrow">профиль</p>
+            <h2 id="about-title">О себе</h2>
+          </div>
+
+          <form class="bio-form" data-bio-form>
+            <label class="sr-only" for="profile-bio-input">Расскажите о себе</label>
+            <textarea id="profile-bio-input" data-bio-input maxlength="280" placeholder="Пара слов о том, во что вы играете…"></textarea>
+            <div class="bio-form__foot">
+              <span class="form-counter" data-bio-count>0/280</span>
+              <button class="btn btn--primary btn--sm" type="submit">Сохранить</button>
+            </div>
+          </form>
+
+          <dl class="profile-stats">
+            <div>
+              <dt>Избранное</dt>
+              <dd data-stat-favorites>0</dd>
+            </div>
+            <div data-stat-tickets-wrap>
+              <dt>Обращения</dt>
+              <dd data-stat-tickets>0</dd>
+            </div>
+            <div>
+              <dt>С нами</dt>
+              <dd data-stat-joined>локально</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="panel profile-media" aria-labelledby="media-title">
+          <div class="panel-heading">
+            <p class="eyebrow">как в Steam</p>
+            <h2 id="media-title">Фон профиля</h2>
+          </div>
+
+          <p class="profile-media__status" data-video-status>Загружаю данные профиля…</p>
+
+          <div class="profile-media__actions">
+            <label class="btn btn--primary btn--sm">
+              Сменить видео
+              <input type="file" accept="video/mp4,video/webm,video/ogg" hidden data-video-input />
+            </label>
+            <button class="btn btn--ghost btn--sm" type="button" data-video-remove disabled>Убрать видео</button>
+          </div>
+
+          <p class="profile-media__note">
+            MP4, WebM или OGG до 80 МБ. Видео хранится в IndexedDB этого браузера
+            и никуда не отправляется. На странице входа фон фиксированный.
+          </p>
+
+          <div class="profile-media__divider"></div>
+
+          <div class="profile-media__avatar-row">
+            <div>
+              <span class="profile-media__label">Аватар</span>
+              <span class="profile-media__note">Квадратная картинка, обрежется автоматически.</span>
+            </div>
+            <button class="btn btn--ghost btn--sm" type="button" data-avatar-remove disabled>Убрать аватар</button>
+          </div>
+
+          <input type="file" accept="image/*" hidden data-avatar-input />
+        </section>
+      </div>
+
+      <section class="panel profile-favorites" aria-labelledby="favorites-title">
+        <div class="panel-heading panel-heading--row">
+          <div>
+            <p class="eyebrow">коллекция</p>
+            <h2 id="favorites-title">
+              Избранные игры
+              <span class="panel-count" data-favorites-count>0</span>
+            </h2>
+          </div>
+          <a class="text-link" href="index.html">В каталог <span aria-hidden="true">→</span></a>
+        </div>
+
+        <div class="games-grid favorites-grid" data-favorites-list hidden></div>
+
+        <div class="empty-state empty-state--inline" data-favorites-empty>
+          <span class="empty-state__icon" aria-hidden="true">☆</span>
+          <h3>Пока пусто</h3>
+          <p>Откройте любую игру и нажмите «В избранное» — она появится здесь.</p>
+          <a class="btn btn--primary btn--sm" href="index.html">Выбрать игру</a>
+        </div>
+      </section>
+
+      <section class="panel profile-tickets" aria-labelledby="tickets-title" data-profile-tickets hidden>
+        <div class="panel-heading panel-heading--row">
+          <div>
+            <p class="eyebrow">обратная связь</p>
+            <h2 id="tickets-title">
+              Мои обращения
+              <span class="panel-count" data-tickets-count>0</span>
+            </h2>
+          </div>
+          <a class="text-link" href="contacts.html">Написать ещё <span aria-hidden="true">→</span></a>
+        </div>
+
+        <div class="tickets-list" data-tickets-list hidden></div>
+
+        <div class="empty-state empty-state--inline" data-tickets-empty>
+          <span class="empty-state__icon" aria-hidden="true">✉</span>
+          <h3>Обращений пока нет</h3>
+          <p>Задайте вопрос через форму обратной связи — ответ появится здесь и в админ-панели.</p>
+          <a class="btn btn--primary btn--sm" href="contacts.html">Задать вопрос</a>
+        </div>
+      </section>
+
+      <section class="panel profile-faq" aria-labelledby="faq-title">
+        <div class="panel-heading">
+          <p class="eyebrow">публичные ответы</p>
+          <h2 id="faq-title">Ответы на вопросы</h2>
+        </div>
+
+        <div class="faq-list" data-faq-list hidden></div>
+
+        <div class="empty-state empty-state--inline" data-faq-empty>
+          <span class="empty-state__icon" aria-hidden="true">?</span>
+          <h3>Ответов пока нет</h3>
+          <p>Как только администратор ответит на первое обращение, оно появится здесь.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer data-site-footer></footer>
+
+  <script src="assets/js/data.js?v=20261104f"></script>
+  <script src="assets/js/data-extra.js?v=20261104f"></script>
+  <script src="assets/js/store.js?v=20261104f"></script>
+  <script src="assets/js/common.js?v=20261104f"></script>
+  <script src="assets/js/profile.js?v=20261104f"></script>
+</body>
+</html>

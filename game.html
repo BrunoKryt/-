@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IndieForge — карточка игры</title>
+  <meta name="description" content="Карточка игры на IndieForge: описание, системные требования и похожие игры." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css?v=20261104f" />
+  <link rel="stylesheet" href="assets/css/editorial.css?v=20261104f" />
+</head>
+<body data-page="game">
+  <a class="skip-link" href="#main">Перейти к карточке</a>
+  <header data-site-header></header>
+
+  <main class="page" id="main">
+    <div class="container">
+      <nav class="breadcrumbs" data-game-breadcrumbs aria-label="Хлебные крошки"></nav>
+    </div>
+
+    <article class="game-page" data-game-page>
+      <section class="game-hero" data-game-hero>
+        <div class="game-hero__bg" aria-hidden="true">
+          <img data-game-wide alt="" fetchpriority="high" decoding="async" />
+          <video class="game-hero__video" data-game-trailer muted loop playsinline preload="none" hidden></video>
+        </div>
+        <div class="game-hero__veil" aria-hidden="true"></div>
+
+        <div class="game-hero__inner">
+          <div class="game-hero__poster" data-game-poster></div>
+
+          <div class="game-hero__content">
+            <p class="eyebrow" data-game-eyebrow></p>
+            <h1 data-game-title></h1>
+            <p class="game-hero__tagline" data-game-tagline></p>
+            <div class="game-hero__badges" data-game-badges></div>
+
+            <div class="game-hero__actions">
+              <button class="btn btn--primary btn--favorite" type="button" data-favorite aria-pressed="false">
+                В избранное
+              </button>
+              <a class="btn" data-game-steam target="_blank" rel="noopener" hidden>Steam</a>
+              <a class="btn btn--ghost" data-game-site target="_blank" rel="noopener" hidden>Официальный сайт</a>
+              <button class="btn btn--icon btn--ghost" type="button" data-copy-link aria-label="Скопировать ссылку" title="Скопировать ссылку">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                  <path d="M9 15 15 9M7.5 10.5l-2 2a3.5 3.5 0 0 0 5 5l2-2M16.5 13.5l2-2a3.5 3.5 0 0 0-5-5l-2 2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+              <button class="btn btn--icon btn--ghost game-trailer-toggle" type="button" data-trailer-toggle aria-label="Пауза фона-трейлера" title="Пауза" hidden>
+                <svg class="game-trailer-toggle__pause" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><rect x="7" y="5" width="3.4" height="14" rx="1.2"/><rect x="13.6" y="5" width="3.4" height="14" rx="1.2"/></svg>
+                <svg class="game-trailer-toggle__play" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l10-6.5-10-6.5Z"/></svg>
+              </button>
+              <button class="btn btn--icon btn--ghost game-trailer-sound" type="button" data-trailer-sound aria-label="Включить звук трейлера" title="Включить звук" aria-pressed="false" hidden>
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4V9Z" stroke-linejoin="round"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" stroke-linecap="round"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="container game-tabs-wrap">
+        <div class="tabs" role="tablist" aria-label="Разделы карточки" data-game-tabs>
+          <button class="is-active" type="button" role="tab" aria-selected="true" data-tab="info">Информация</button>
+          <button type="button" role="tab" aria-selected="false" data-tab="description">Описание</button>
+          <button type="button" role="tab" aria-selected="false" data-tab="requirements">Системные требования</button>
+        </div>
+      </div>
+
+      <div class="container">
+        <section class="tab-panel is-active" role="tabpanel" data-tab-panel="info" aria-label="Информация об игре">
+          <div class="game-info" data-game-info></div>
+        </section>
+
+        <section class="tab-panel" role="tabpanel" data-tab-panel="description" aria-label="Описание игры">
+          <div class="game-description" data-game-description></div>
+        </section>
+
+        <section class="tab-panel" role="tabpanel" data-tab-panel="requirements" aria-label="Системные требования">
+          <div class="game-requirements" data-game-requirements></div>
+        </section>
+      </div>
+
+      <section class="related" data-related-section>
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">дальше по вкусу</p>
+              <h2>Похожие игры</h2>
+            </div>
+            <a class="text-link" href="index.html">Весь каталог <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="games-grid" data-related-grid></div>
+        </div>
+      </section>
+    </article>
+
+    <section class="game-missing container" data-game-missing hidden>
+      <div class="empty-state">
+        <span class="empty-state__icon" aria-hidden="true">?</span>
+        <h1>Игра не найдена</h1>
+        <p>Возможно, карточку скрыли из каталога или в ссылке опечатка. Зато ниже есть на что посмотреть.</p>
+        <div class="empty-state__actions">
+          <a class="btn btn--primary" href="index.html">Открыть каталог</a>
+          <a class="btn btn--ghost" href="contacts.html">Написать нам</a>
+        </div>
+      </div>
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">популярное</p>
+          <h2>Высокие оценки</h2>
+        </div>
+      </div>
+      <div class="games-grid" data-missing-grid></div>
+    </section>
+  </main>
+
+  <footer data-site-footer></footer>
+
+  <script src="assets/js/data.js?v=20261104f"></script>
+  <script src="assets/js/data-extra.js?v=20261104f"></script>
+  <script src="assets/vendor/hls.min.js?v=20261104f"></script>
+  <script src="assets/js/trailers.js?v=20261104f"></script>
+  <script src="assets/js/store.js?v=20261104f"></script>
+  <script src="assets/js/common.js?v=20261104f"></script>
+  <script src="assets/js/game.js?v=20261104f"></script>
+</body>
+</html>

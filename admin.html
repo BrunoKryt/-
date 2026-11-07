@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IndieForge — админ-панель</title>
+  <meta name="description" content="Админ-панель IndieForge: управление каталогом, обращениями и настройками советника." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css?v=20261104f" />
+  <link rel="stylesheet" href="assets/css/editorial.css?v=20261104f" />
+</head>
+<body class="is-admin" data-page="admin" data-advisor="off">
+  <main class="admin-page" id="main">
+    <header class="admin-topbar">
+      <a class="admin-brand" href="index.html">Indie<span>Forge</span><em>admin</em></a>
+      <div class="admin-topbar__actions">
+        <a class="btn btn--ghost btn--sm" href="index.html">На сайт</a>
+        <span class="admin-user" data-admin-user hidden></span>
+        <button class="btn btn--ghost btn--sm" type="button" data-admin-logout hidden>Выйти</button>
+      </div>
+    </header>
+
+    <section class="admin-gate" data-admin-gate hidden>
+      <div class="admin-gate__card">
+        <p class="eyebrow"><span class="eyebrow__dot"></span> admin access</p>
+        <h1>Админ-панель</h1>
+        <p class="admin-gate__lead">
+          Управление каталогом и обращениями доступно только администратору IndieForge.
+          Данные каталога собираются из MariaDB, а черновики редактора хранятся в этом браузере.
+        </p>
+
+        <form class="admin-gate__form" data-admin-login-form novalidate>
+          <div class="field">
+            <label for="admin-name">Имя администратора</label>
+            <input id="admin-name" name="name" type="text" autocomplete="username" placeholder="Ваше имя" required />
+          </div>
+          <div class="field">
+            <label for="admin-password">Пароль</label>
+            <input id="admin-password" name="password" type="password" autocomplete="current-password" placeholder="••••••••" required />
+          </div>
+          <p class="form-status" role="status" aria-live="polite" data-admin-login-status></p>
+          <button class="btn btn--primary auth-submit" type="submit">Войти в панель</button>
+        </form>
+
+        <p class="admin-gate__hint">
+          <a href="login.html">обычный вход</a>
+        </p>
+      </div>
+    </section>
+
+    <div class="admin-shell" data-admin-shell hidden>
+      <div class="admin-heading">
+        <div>
+          <p class="eyebrow">управление сайтом</p>
+          <h1>Панель управления</h1>
+          <p class="admin-heading__lead">
+            Каталог, обращения и советник. База сайта — MariaDB, а черновики
+            и правки редактора сохраняются в этом браузере.
+          </p>
+        </div>
+        <button class="btn btn--primary" type="button" data-admin-add-game>+ Добавить игру</button>
+      </div>
+
+      <section class="admin-stats" data-admin-stats aria-label="Статистика">
+        <div class="stat-card">
+          <span class="stat-card__label">Игр в каталоге</span>
+          <strong data-stat="games">0</strong>
+          <span class="stat-card__hint">включая свои</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card__label">Своих игр</span>
+          <strong data-stat="custom">0</strong>
+          <span class="stat-card__hint">добавлены вручную</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card__label">Скрыто</span>
+          <strong data-stat="hidden">0</strong>
+          <span class="stat-card__hint">можно вернуть</span>
+        </div>
+        <div class="stat-card stat-card--accent">
+          <span class="stat-card__label">Новых обращений</span>
+          <strong data-stat="new">0</strong>
+          <span class="stat-card__hint">ждут ответа</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card__label">В избранном</span>
+          <strong data-stat="favorites">0</strong>
+          <span class="stat-card__hint">у всех профилей</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card__label">Аккаунтов</span>
+          <strong data-stat="users">0</strong>
+          <span class="stat-card__hint">в этом браузере</span>
+        </div>
+      </section>
+
+      <nav class="admin-tabs" role="tablist" aria-label="Разделы админ-панели" data-admin-tabs>
+        <button class="is-active" type="button" role="tab" aria-selected="true" data-admin-tab="catalog">
+          Каталог <span class="tab-count" data-badge-games>0</span>
+        </button>
+        <button type="button" role="tab" aria-selected="false" data-admin-tab="feedback">
+          Обращения <span class="tab-count tab-count--accent" data-badge-feedback>0</span>
+        </button>
+        <button type="button" role="tab" aria-selected="false" data-admin-tab="settings">Советник</button>
+        <button type="button" role="tab" aria-selected="false" data-admin-tab="data">Данные</button>
+      </nav>
+
+      <section class="admin-panel" data-admin-panel="catalog">
+        <div class="admin-toolbar">
+          <label class="admin-search">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="11" cy="11" r="6.5" />
+              <path d="m16 16 4.5 4.5" stroke-linecap="round" />
+            </svg>
+            <input type="search" placeholder="Поиск по названию, id, разработчику…" data-admin-game-search aria-label="Поиск по каталогу" />
+          </label>
+          <div class="admin-toolbar__right">
+            <span class="admin-toolbar__count" data-admin-games-count>75 из 75 игр</span>
+            <button class="btn btn--ghost btn--sm" type="button" data-admin-reset-catalog>Сбросить каталог</button>
+          </div>
+        </div>
+
+        <div class="admin-games" data-admin-games></div>
+
+        <div class="empty-state empty-state--inline" data-admin-games-empty hidden>
+          <span class="empty-state__icon" aria-hidden="true">⌕</span>
+          <h3>Ничего не найдено</h3>
+          <p>Измените запрос или добавьте новую игру.</p>
+        </div>
+
+        <div class="admin-hidden" data-admin-hidden-wrap hidden>
+          <div class="panel-heading panel-heading--row">
+            <div>
+              <p class="eyebrow">архив</p>
+              <h2>Скрытые игры</h2>
+            </div>
+            <span class="muted">верните в каталог одним нажатием</span>
+          </div>
+          <div class="admin-hidden__list" data-admin-hidden></div>
+        </div>
+      </section>
+
+      <section class="admin-panel" data-admin-panel="feedback" hidden>
+        <div class="admin-toolbar">
+          <div class="admin-filters" data-feedback-filters>
+            <button class="is-active" type="button" data-feedback-filter="all" aria-pressed="true">
+              Все <span class="tab-count" data-filter-count>0</span>
+            </button>
+            <button type="button" data-feedback-filter="new" aria-pressed="false">
+              Новые <span class="tab-count tab-count--accent" data-filter-count>0</span>
+            </button>
+            <button type="button" data-feedback-filter="answered" aria-pressed="false">
+              Отвеченные <span class="tab-count" data-filter-count>0</span>
+            </button>
+          </div>
+          <span class="admin-toolbar__count" data-admin-feedback-count>0 из 0 обращений</span>
+        </div>
+
+        <div class="admin-feedback" data-admin-feedback></div>
+
+        <div class="empty-state empty-state--inline" data-admin-feedback-empty hidden>
+          <span class="empty-state__icon" aria-hidden="true">✉</span>
+          <h3>Обращений нет</h3>
+          <p>Когда пользователь отправит форму, она появится здесь.</p>
+        </div>
+      </section>
+
+      <section class="admin-panel" data-admin-panel="settings" hidden>
+        <div class="admin-settings">
+          <form class="panel admin-settings__card" data-advisor-form novalidate>
+            <div class="panel-heading">
+              <p class="eyebrow">советник</p>
+              <h2>Внешний API</h2>
+            </div>
+            <p class="muted">
+              По умолчанию советник отвечает локально по каталогу. Можно указать
+              POST-endpoint — тогда он сначала попробует нейросеть, а при ошибке
+              вернётся к локальной базе.
+            </p>
+            <div class="field">
+              <label for="advisor-endpoint">Endpoint</label>
+              <input id="advisor-endpoint" type="url" data-advisor-endpoint placeholder="https://your-worker.dev/advisor" />
+            </div>
+            <p class="form-status" role="status" aria-live="polite" data-advisor-status></p>
+            <div class="admin-form-actions">
+              <button class="btn btn--primary" type="submit">Сохранить</button>
+              <button class="btn btn--ghost" type="button" data-advisor-clear>Очистить</button>
+            </div>
+            <details class="admin-details">
+              <summary>Контракт API</summary>
+              <pre>POST /advisor
+{
+  "message": "что посоветуешь на двоих?",
+  "history": [{ "role": "user", "text": "..." }],
+  "site": "indieforge"
+}
+
+Ответ:
+{ "answer": "текст", "gameIds": ["it-takes-two"], "links": [] }</pre>
+              <p class="muted">Подойдёт и OpenAI-совместимый ответ: choices[0].message.content.</p>
+            </details>
+          </form>
+
+          <div class="panel admin-settings__card">
+            <div class="panel-heading">
+              <p class="eyebrow">сейчас</p>
+              <h2>Режим советника</h2>
+            </div>
+            <dl class="settings-list">
+              <div>
+                <dt>Режим</dt>
+                <dd data-advisor-mode>Локальная база каталога</dd>
+              </div>
+              <div>
+                <dt>Endpoint</dt>
+                <dd data-advisor-current>не задан</dd>
+              </div>
+              <div>
+                <dt>Локальные ответы</dt>
+                <dd>категории, годы, требования, избранное, профиль</dd>
+              </div>
+            </dl>
+            <p class="muted">
+              Советник виден на всех страницах, кроме входа и админ-панели.
+              Он не отправляет данные, пока endpoint не задан.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="admin-panel" data-admin-panel="data" hidden>
+        <div class="admin-settings">
+          <div class="panel admin-settings__card">
+            <div class="panel-heading">
+              <p class="eyebrow">экспорт</p>
+              <h2>Скачать данные</h2>
+            </div>
+            <p class="muted">
+              JSON с каталогом, обращениями, профилями, избранным и настройками.
+              Пароли в экспорт не попадают.
+            </p>
+            <div class="admin-form-actions">
+              <button class="btn btn--primary" type="button" data-export>Скачать JSON</button>
+            </div>
+            <p class="admin-export-info" data-export-info></p>
+            <p class="admin-export-info" data-storage-info></p>
+          </div>
+
+          <div class="panel admin-settings__card panel--danger">
+            <div class="panel-heading">
+              <p class="eyebrow">осторожно</p>
+              <h2>Опасная зона</h2>
+            </div>
+            <p class="muted">
+              Сброс каталога вернёт исходные 75 игр и удалит все правки, свои игры и скрытые карточки.
+              Очистка обращений удалит всю переписку.
+            </p>
+            <div class="admin-form-actions">
+              <button class="btn btn--danger-ghost" type="button" data-danger-reset>Сбросить каталог</button>
+              <button class="btn btn--danger-ghost" type="button" data-clear-feedback>Очистить обращения</button>
+            </div>
+            <p class="muted">
+              Исходный каталог и обращения хранятся в MariaDB. Правки, скрытые
+              карточки и загруженные обложки — в этом браузере; для переноса
+              используйте экспорт JSON.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <dialog class="admin-dialog" data-game-dialog aria-labelledby="game-form-title">
+    <form class="admin-form" data-game-form novalidate>
+      <header class="admin-dialog__head">
+        <div>
+          <p class="eyebrow" data-game-form-eyebrow>добавление в каталог</p>
+          <h2 id="game-form-title" data-game-form-title>Новая игра</h2>
+        </div>
+        <button class="admin-dialog__close" type="button" data-game-cancel-form aria-label="Закрыть">×</button>
+      </header>
+
+      <div class="admin-dialog__body">
+        <div class="form-row">
+          <div class="field">
+            <label for="game-title">Название *</label>
+            <input id="game-title" name="title" type="text" required placeholder="Например, Hades II" />
+          </div>
+          <div class="field">
+            <label for="game-id">ID / slug</label>
+            <input id="game-id" name="id" type="text" placeholder="сгенерируется из названия" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="game-year">Год</label>
+            <input id="game-year" name="year" type="number" min="1990" max="2100" />
+          </div>
+          <div class="field">
+            <label for="game-weight">Пресет требований</label>
+            <select id="game-weight" name="weight"></select>
+          </div>
+        </div>
+
+        <fieldset class="field field--fieldset">
+          <legend>Категории *</legend>
+          <div class="checks" data-game-categories></div>
+        </fieldset>
+
+        <div class="field">
+          <label>Обложка</label>
+          <div class="cover-editor">
+            <div class="cover-preview" data-cover-preview></div>
+            <div class="cover-editor__fields">
+              <input name="coverUrl" type="text" data-cover-url placeholder="assets/img/games/… или https://…" />
+              <div class="cover-editor__row">
+                <label class="btn btn--sm">
+                  Загрузить файл
+                  <input type="file" accept="image/*" hidden data-cover-file />
+                </label>
+                <span class="note">600×900 · JPG/PNG/WebP</span>
+              </div>
+              <span class="note">Лучше ссылка на Steam-обложку: загруженный файл занимает место в localStorage.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Широкий фон для карточки</label>
+          <div class="cover-editor">
+            <div class="cover-preview cover-preview--wide" data-wide-preview></div>
+            <div class="cover-editor__fields">
+              <input name="wideUrl" type="text" data-wide-url placeholder="assets/img/games/wide/… или https://…" />
+              <div class="cover-editor__row">
+                <label class="btn btn--sm">
+                  Загрузить файл
+                  <input type="file" accept="image/*" hidden data-wide-file />
+                </label>
+                <span class="note">1200×500 · необязательно</span>
+              </div>
+              <span class="note">Если не указать, советник возьмёт обложку или стандартный градиент.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="game-rating">Оценка IndieForge</label>
+            <input id="game-rating" name="rating" type="text" placeholder="8.4 или —" />
+          </div>
+          <div class="field">
+            <label for="game-steam">Оценка Steam</label>
+            <input id="game-steam" name="steam" type="text" placeholder="89/100 или ожидается" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="game-release">Дата выхода</label>
+            <input id="game-release" name="release" type="text" placeholder="27.02.2026" />
+          </div>
+          <div class="field">
+            <label for="game-genres">Жанры</label>
+            <input id="game-genres" name="genres" type="text" placeholder="Хоррор, Выживания, Шутер" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="game-developer">Разработчик</label>
+            <input id="game-developer" name="developer" type="text" />
+          </div>
+          <div class="field">
+            <label for="game-publisher">Издатель</label>
+            <input id="game-publisher" name="publisher" type="text" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="game-website">Официальный сайт / Steam</label>
+          <input id="game-website" name="website" type="url" placeholder="https://store.steampowered.com/app/…" />
+        </div>
+
+        <div class="field">
+          <label for="game-tagline">Слоган</label>
+          <input id="game-tagline" name="tagline" type="text" maxlength="140" placeholder="Одна фраза, которая продаёт игру" />
+        </div>
+
+        <div class="field">
+          <label for="game-description">Описание</label>
+          <textarea id="game-description" name="description" rows="5" placeholder="Коротко о сюжете, атмосфере и том, чем игра цепляет."></textarea>
+        </div>
+
+        <p class="form-status" role="status" aria-live="polite" data-game-form-status></p>
+      </div>
+
+      <footer class="admin-dialog__foot">
+        <button class="btn btn--ghost" type="button" data-game-cancel-form>Отмена</button>
+        <button class="btn btn--primary" type="submit">Сохранить игру</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <script src="assets/js/data.js?v=20261104f"></script>
+  <script src="assets/js/data-extra.js?v=20261104f"></script>
+  <script src="assets/js/store.js?v=20261104f"></script>
+  <script src="assets/js/common.js?v=20261104f"></script>
+  <script src="assets/js/admin.js?v=20261104f"></script>
+</body>
+</html>

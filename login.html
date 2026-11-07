@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IndieForge — вход</title>
+  <meta name="description" content="Вход и регистрация на IndieForge: избранное, профиль и ответы на обращения." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css?v=20261104f" />
+  <link rel="stylesheet" href="assets/css/editorial.css?v=20261104f" />
+</head>
+<body class="is-auth" data-page="login" data-advisor="off">
+  <div class="auth-bg" aria-hidden="true">
+    <video class="auth-bg__video" src="assets/video/login-bg.mp4" autoplay muted loop playsinline preload="auto"></video>
+    <div class="auth-bg__shade"></div>
+  </div>
+
+  <main class="auth-page" id="main">
+    <a class="auth-logo" href="index.html">Indie<span>Forge</span></a>
+
+    <div class="auth-layout">
+      <div class="auth-copy">
+        <p class="eyebrow">журнал о играх · с 2012 года</p>
+        <h2>Возвращайтесь <em>после титров</em>.</h2>
+        <p>
+          В кабинете живут избранные игры, ваш фон, короткая биография и ответы
+          редакции на обращения. Ничего лишнего — только то, что вы собрали сами.
+        </p>
+        <blockquote class="auth-copy__quote">
+          «Хорошая игра заканчивается, но разговор о ней — не сразу».
+        </blockquote>
+      </div>
+
+      <section class="auth-card" aria-labelledby="auth-title">
+        <div class="auth-tabs" role="tablist" aria-label="Вход или регистрация" data-auth-tabs>
+          <button class="is-active" type="button" role="tab" aria-selected="true" data-auth-mode="login">Вход</button>
+          <button type="button" role="tab" aria-selected="false" data-auth-mode="register">Регистрация</button>
+        </div>
+
+        <p class="eyebrow">личный кабинет</p>
+        <h1 id="auth-title" data-auth-title>С возвращением</h1>
+        <p class="auth-lead" data-auth-lead>
+          Войдите, чтобы сохранять избранное, менять профиль и получать ответы на обращения.
+        </p>
+
+        <div data-auth-panel>
+          <form class="auth-form" data-auth-form novalidate>
+            <div class="field">
+              <label for="auth-name">Имя</label>
+              <input id="auth-name" name="name" type="text" autocomplete="username" placeholder="Ваше имя" required />
+            </div>
+
+            <div class="field" data-auth-email-field hidden>
+              <label for="auth-email">E-mail <span class="field__optional">необязательно</span></label>
+              <input id="auth-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" />
+            </div>
+
+            <div class="field">
+              <label for="auth-password">Пароль</label>
+              <input id="auth-password" name="password" type="password" autocomplete="current-password" placeholder="••••••••" required />
+            </div>
+
+            <div class="field" data-auth-confirm-field hidden>
+              <label for="auth-confirm">Повторите пароль</label>
+              <input id="auth-confirm" name="confirm" type="password" autocomplete="new-password" placeholder="••••••••" />
+            </div>
+
+            <p class="form-status" role="status" aria-live="polite" data-auth-status></p>
+
+            <button class="btn btn--primary auth-submit" type="submit" data-auth-submit>Войти</button>
+          </form>
+
+          <p class="auth-switch">
+            <span data-auth-switch-text>Нет аккаунта?</span>
+            <button class="link-button" type="button" data-auth-switch>Зарегистрироваться</button>
+          </p>
+        </div>
+
+        <div class="auth-session" data-auth-session hidden>
+          <span class="auth-session__check" aria-hidden="true">✓</span>
+          <h2 data-auth-session-name>demo</h2>
+          <p data-auth-session-role>аккаунт IndieForge</p>
+          <div class="auth-session__actions">
+            <a class="btn btn--primary" href="profile.html">Открыть профиль</a>
+            <a class="btn" href="admin.html" data-auth-session-admin hidden>Админ-панель</a>
+            <button class="btn btn--ghost" type="button" data-auth-session-logout>Выйти</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="assets/js/data.js?v=20261104f"></script>
+  <script src="assets/js/data-extra.js?v=20261104f"></script>
+  <script src="assets/js/store.js?v=20261104f"></script>
+  <script src="assets/js/common.js?v=20261104f"></script>
+  <script src="assets/js/login.js?v=20261104f"></script>
+</body>
+</html>

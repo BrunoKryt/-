@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IndieForge — мастерская модов</title>
+  <meta name="description" content="Мастерская IndieForge: моды сообщества, переносы механик между движками, HUD-интерфейсы и заметки о сборке." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css?v=20261104f" />
+  <link rel="stylesheet" href="assets/css/editorial.css?v=20261104f" />
+  <link rel="stylesheet" href="assets/css/mods.css?v=20261104f" />
+</head>
+<body data-page="mods">
+  <a class="skip-link" href="#main">Перейти к мастерской</a>
+  <header data-site-header></header>
+
+  <main class="page" id="main">
+    <section class="mods-hero">
+      <div class="mods-hero__media" aria-hidden="true">
+        <img src="assets/img/games/wide/project-zomboid.jpg" alt="" fetchpriority="high" />
+      </div>
+      <div class="mods-hero__veil" aria-hidden="true"></div>
+
+      <div class="container mods-hero__inner">
+        <div class="mods-hero__copy">
+          <p class="eyebrow"><span class="eyebrow__dot"></span> мастерская сообщества</p>
+          <h1>Игры, которые<br />учатся новым трюкам</h1>
+          <p class="mods-hero__lead">
+            Здесь живут проекты, которые не помещаются в одну игру: HUD для выживания,
+            оружие из другого движка, «игра внутри игры» и осторожные эксперименты
+            с балансом. У каждого — маршрут, инструменты и честный статус.
+          </p>
+          <div class="mods-hero__actions">
+            <a class="btn btn--primary" href="contacts.html">Предложить проект</a>
+            <a class="btn btn--ghost" href="#workshop">Смотреть мастерскую</a>
+          </div>
+        </div>
+
+        <aside class="mods-hero__note" aria-label="О мастерской">
+          <span class="mods-hero__note-label">заметка редактора</span>
+          <p>«Хороший мод не спорит с игрой. Он добавляет ей ещё один способ быть собой».</p>
+          <span class="mods-hero__note-sign">команда IndieForge</span>
+        </aside>
+      </div>
+
+      <div class="container mods-stats">
+        <div class="mods-stat"><strong data-mods-total>9</strong><span>проектов</span></div>
+        <div class="mods-stat"><strong data-mods-games>7</strong><span>игр</span></div>
+        <div class="mods-stat"><strong data-mods-engines>6</strong><span>движков</span></div>
+        <div class="mods-stat"><strong>2019</strong><span>первый эксперимент</span></div>
+      </div>
+    </section>
+
+    <section class="container workshop" id="workshop" aria-labelledby="workshop-title">
+      <div class="workshop__head">
+        <div>
+          <p class="eyebrow">каталог проектов</p>
+          <h2 id="workshop-title">Что уже собрано</h2>
+        </div>
+        <p class="workshop__hint">Карточки читаются сверху вниз: игра, идея, маршрут и инструменты.</p>
+      </div>
+
+      <div class="workshop-toolbar">
+        <label class="workshop-search">
+          <span class="sr-only">Поиск по модам</span>
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.2"/><path d="m15.5 15.5 4 4" stroke-linecap="round"/></svg>
+          <input type="search" placeholder="Игра, движок или инструмент" data-mods-search autocomplete="off" />
+        </label>
+        <div class="workshop-chips" role="group" aria-label="Фильтр проектов" data-mods-filters></div>
+      </div>
+
+      <p class="workshop__count" data-mods-count>9 проектов</p>
+      <div class="mods-grid" data-mods-grid></div>
+
+      <div class="empty-state empty-state--inline" data-mods-empty hidden>
+        <span class="empty-state__icon" aria-hidden="true">⌕</span>
+        <h3>Ничего не нашлось</h3>
+        <p>Попробуйте другое слово или сбросьте фильтр — в мастерской точно есть что-то ещё.</p>
+        <button class="btn btn--primary btn--sm" type="button" data-mods-reset>Показать всё</button>
+      </div>
+    </section>
+
+    <section class="container mods-process" aria-labelledby="process-title">
+      <div class="mods-process__intro">
+        <p class="eyebrow">как это делается</p>
+        <h2 id="process-title">Не магия, а маршрут</h2>
+        <p>Сначала разбираем движок и находим точку входа. Потом собираем минимальный прототип, тестируем на живой сборке и только затем трогаем баланс.</p>
+      </div>
+      <ol class="mods-steps">
+        <li>
+          <span class="mods-step__num">01</span>
+          <h3>Разбор движка</h3>
+          <p>Ищем, где живут данные, как устроены события и что можно менять без ломки сохранений.</p>
+        </li>
+        <li>
+          <span class="mods-step__num">02</span>
+          <h3>Прототип</h3>
+          <p>Собираем самый маленький рабочий сценарий. Если он не приносит удовольствия — идея уходит в стол.</p>
+        </li>
+        <li>
+          <span class="mods-step__num">03</span>
+          <h3>Живая сборка</h3>
+          <p>Проверяем совместимость, переводы, производительность и поведение на чистой установке.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="container mods-cta">
+      <div>
+        <p class="eyebrow">следующий проект</p>
+        <h2>Хотите перенести что-то своё?</h2>
+        <p>Расскажите, какая игра и какая механика. Мы посмотрим на движок и честно скажем, стоит ли начинать.</p>
+      </div>
+      <a class="btn btn--primary" href="contacts.html">Оставить заявку</a>
+    </section>
+  </main>
+
+  <dialog class="mod-dialog" data-mod-dialog aria-labelledby="mod-dialog-title">
+    <div class="mod-dialog__inner">
+      <button class="mod-dialog__close" type="button" data-mod-close aria-label="Закрыть">×</button>
+      <div data-mod-dialog-content></div>
+    </div>
+  </dialog>
+
+  <footer data-site-footer></footer>
+
+  <noscript>
+    <p class="container" style="padding: 2rem 0;">Для мастерской нужен JavaScript — карточки проектов собираются на лету.</p>
+  </noscript>
+
+  <script src="assets/js/data.js?v=20261104f"></script>
+  <script src="assets/js/data-extra.js?v=20261104f"></script>
+  <script src="assets/js/store.js?v=20261104f"></script>
+  <script src="assets/js/common.js?v=20261104f"></script>
+  <script src="assets/js/mods.js?v=20261104f"></script>
+</body>
+</html>

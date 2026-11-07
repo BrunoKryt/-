@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IndieForge — обратная связь</title>
+  <meta name="description" content="Обратная связь IndieForge: вопрос, идея, мод или ошибка на сайте. Обращение сохраняется и попадает в админ-панель." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css?v=20261104f" />
+  <link rel="stylesheet" href="assets/css/editorial.css?v=20261104f" />
+</head>
+<body data-page="contacts">
+  <a class="skip-link" href="#main">Перейти к форме</a>
+  <header data-site-header></header>
+
+  <main class="page" id="main">
+    <section class="contacts-page container" aria-labelledby="contact-title">
+      <div class="contacts-layout">
+        <div class="contacts-intro">
+          <p class="eyebrow"><span class="eyebrow__dot"></span> обратная связь</p>
+          <h1 id="contact-title">Напишите нам —<br />мы читаем всё</h1>
+          <p class="contacts-intro__lead">
+            Вопрос по игре, идея мода, ошибка на сайте или просто «добавьте вот эту игру».
+            Сообщение попадёт в админ-панель, а ответ появится в вашем профиле и в
+            публичном разделе «Ответы на вопросы».
+          </p>
+
+          <div class="contact-facts">
+            <div class="contact-fact">
+              <span class="contact-fact__number">01</span>
+              <div>
+                <strong>Отвечаем в течение 1–2 дней</strong>
+                <p>Обычно быстрее, но выходные тоже бывают.</p>
+              </div>
+            </div>
+            <div class="contact-fact">
+              <span class="contact-fact__number">02</span>
+              <div>
+                <strong>Попадает в редакцию</strong>
+                <p>Сохраняем обращение в базе IndieForge, чтобы ничего не потерялось. Ответ придёт на e-mail или в профиль.</p>
+              </div>
+            </div>
+            <div class="contact-fact">
+              <span class="contact-fact__number">03</span>
+              <div>
+                <strong>Можно анонимно</strong>
+                <p>Оставьте e-mail или Telegram — без контакта мы не сможем ответить.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contacts-links">
+            <a class="contacts-link" href="https://t.me/" target="_blank" rel="noopener">Telegram <span aria-hidden="true">↗</span></a>
+            <a class="contacts-link" href="https://ru.pinterest.com/pin/1045961082216366230/" target="_blank" rel="noopener">Pinterest <span aria-hidden="true">↗</span></a>
+            <a class="contacts-link" href="https://vk.com/" target="_blank" rel="noopener">VK <span aria-hidden="true">↗</span></a>
+          </div>
+
+          <div class="contact-mini-faq">
+            <details>
+              <summary>Где посмотреть системные требования?</summary>
+              <p>На карточке игры, вкладка «Системные требования». Там минимальный и рекомендуемый пресеты.</p>
+            </details>
+            <details>
+              <summary>Как поменять видео-фон профиля?</summary>
+              <p>Откройте профиль, нажмите «Сменить видео» и выберите MP4/WebM до 80 МБ. Видео останется в этом браузере.</p>
+            </details>
+            <details>
+              <summary>Можно добавить свою игру в каталог?</summary>
+              <p>Напишите название, год, категории и ссылку на Steam — администратор добавит карточку через панель.</p>
+            </details>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div data-contact-form-wrap>
+            <div class="panel-heading">
+              <p class="eyebrow">форма</p>
+              <h2>Оставить обращение</h2>
+            </div>
+
+            <form class="contact-form" data-contact-form novalidate>
+              <div class="form-row">
+                <div class="field">
+                  <label for="contact-name">Имя *</label>
+                  <input id="contact-name" name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться" required />
+                </div>
+                <div class="field">
+                  <label for="contact-email">E-mail</label>
+                  <input id="contact-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" />
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="contact-contact">Telegram или телефон</label>
+                <input id="contact-contact" name="contact" type="text" placeholder="@nickname или +7…" />
+              </div>
+
+              <fieldset class="field field--fieldset">
+                <legend>Тема</legend>
+                <div class="topic-chips">
+                  <label class="topic-chip">
+                    <input type="radio" name="topic" value="Вопрос" checked />
+                    <span>Вопрос</span>
+                  </label>
+                  <label class="topic-chip">
+                    <input type="radio" name="topic" value="Моды" />
+                    <span>Моды</span>
+                  </label>
+                  <label class="topic-chip">
+                    <input type="radio" name="topic" value="Сайт" />
+                    <span>Сайт</span>
+                  </label>
+                  <label class="topic-chip">
+                    <input type="radio" name="topic" value="Ошибка" />
+                    <span>Ошибка</span>
+                  </label>
+                  <label class="topic-chip">
+                    <input type="radio" name="topic" value="Сотрудничество" />
+                    <span>Сотрудничество</span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <div class="field">
+                <label for="contact-message">Сообщение *</label>
+                <textarea id="contact-message" name="message" rows="5" maxlength="1200" placeholder="Расскажите, что случилось или что хочется добавить…"></textarea>
+                <span class="form-counter" data-contact-count>0/1200</span>
+              </div>
+
+              <p class="form-status" role="status" aria-live="polite" data-contact-status></p>
+
+              <div class="contact-form__foot">
+                <span class="contact-form__note">Нажимая «Отправить», вы соглашаетесь на обработку данных в этом браузере.</span>
+                <button class="btn btn--primary" type="submit" data-contact-submit>Отправить</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="contact-success" data-contact-success hidden>
+            <span class="contact-success__icon" aria-hidden="true">✓</span>
+            <h2>Обращение сохранено</h2>
+            <p>
+              Номер <strong data-ticket-id>#000000</strong>. Мы уже видим его в админ-панели —
+              ответ появится в вашем профиле и в разделе «Ответы на вопросы».
+            </p>
+            <div class="contact-success__actions">
+              <a class="btn btn--primary" href="profile.html">Открыть профиль</a>
+              <button class="btn btn--ghost" type="button" data-contact-reset>Задать ещё вопрос</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer data-site-footer></footer>
+
+  <script src="assets/js/data.js?v=20261104f"></script>
+  <script src="assets/js/data-extra.js?v=20261104f"></script>
+  <script src="assets/js/store.js?v=20261104f"></script>
+  <script src="assets/js/common.js?v=20261104f"></script>
+  <script src="assets/js/contacts.js?v=20261104f"></script>
+</body>
+</html>
