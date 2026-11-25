@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0f1012" />
+  <title>Дневник разработки - RustStoria</title>
+  <meta name="description" content="Дневник разработки Rust: обновления, девблоги и видео с официальных материалов Facepunch." />
+  <link rel="icon" href="assets/rust-logo.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800&family=Russo+One&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+  <div data-site-header></div>
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <div class="breadcrumbs"><a href="index.html">Главная</a><span>/</span><span>Дневник разработки</span></div>
+        <h1>Дневник разработки</h1>
+        <p>Хронология официальных обновлений Facepunch: новые механики, предметы, сезонные события и изменения баланса.</p>
+      </div>
+    </section>
+    <section class="page-layout">
+      <div class="container">
+        <div class="updates-heading"><div><span class="mini-label">FACEPUNCH / RUST</span><h2>История патчей</h2><p>Все публикации по времени. Открывайте заметки, чтобы увидеть основные изменения и перейти к полным официальным материалам.</p></div><div id="updatesCount" class="updates-counter"></div></div>
+        <div class="updates-controls"><input id="updatesSearch" class="input" type="search" placeholder="Поиск по названию или изменениям..." aria-label="Поиск по обновлениям"><select id="updatesYear" class="input" aria-label="Год публикации"><option value="all">Все годы</option></select><select id="updatesType" class="input" aria-label="Тип обновления"><option value="all">Все публикации</option><option value="patch">Обновления</option><option value="event">События</option></select></div>
+        <div id="updatesFeatured"></div><div id="updatesGrid" class="updates-timeline"></div><div id="updatesMore" class="updates-more"></div>
+        <div class="panel" style="margin-top:18px">
+          <p class="muted" style="font-size:14px">Видео и материалы основаны на официальных публикациях Rust/Facepunch. <a class="text-link" href="https://rust.facepunch.com/news" target="_blank" rel="noopener">Открыть официальный блог <svg class="icon"><use href="#i-external"></use></svg></a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div data-site-footer></div>
+  <script src="js/site-data.js"></script>
+  <script src="js/catalog-data.js"></script>
+  <script src="js/monuments-data.js"></script>
+  <script src="js/wiki-extra.js"></script>
+  <script src="js/site.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/pages/updates.js"></script><script src="js/pages/update-detail.js"></script>
+</body>
+</html>
+

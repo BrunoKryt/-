@@ -1,153 +1,138 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>IndieForge — каталог игр</title>
-  <meta name="description" content="IndieForge — живой каталог инди-игр, AAA и MMO: поиск, фильтры по категориям и годам, уникальные карточки и советник." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0f1012" />
+  <title>RustStoria - энциклопедия, инструменты и медиа по Rust</title>
+  <meta name="description" content="RustStoria - база знаний Rust, калькуляторы рейда и урона, переработчик, конструктор прицела, дерево исследований, коллекции и дневник разработки." />
+  <link rel="icon" href="assets/rust-logo.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="image" href="assets/img/games/wide/hades2.jpg" fetchpriority="high" />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/style.css?v=20261104f" />
-  <link rel="stylesheet" href="assets/css/editorial.css?v=20261104f" />
-  <link rel="stylesheet" href="assets/css/home.css?v=20261104f" />
+  <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800&family=Russo+One&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/site.css" />
 </head>
-<body data-page="index">
-  <a class="skip-link" href="#main">Перейти к каталогу</a>
-  <header data-site-header></header>
+<body>
+  <div data-site-header></div>
 
-  <main class="page" id="main">
-    <section class="catalog-hero" data-catalog-hero aria-label="IndieForge">
-      <div class="catalog-hero__bg" aria-hidden="true">
-        <img data-hero-image src="assets/img/games/wide/hades2.jpg" alt="" fetchpriority="high" decoding="async" />
+  <main id="main">
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/shot4.jpg">
+          <source src="assets/hero.mp4" type="video/mp4" />
+        </video>
       </div>
-      <div class="catalog-hero__veil" aria-hidden="true"></div>
-
-      <div class="catalog-hero__inner">
-        <div class="catalog-hero__copy">
-          <p class="eyebrow"><span class="eyebrow__dot"></span> каталог · <span data-catalog-total>75</span> игр</p>
-          <h1>Игры, в которые<br />хочется остаться</h1>
-          <p class="catalog-hero__lead">
-            Инди, большие релизы и MMO без случайных подборок. Ищите по названию,
-            фильтруйте по категориям и годам — и открывайте карточку с сюжетом,
-            требованиями и ссылкой на Steam.
-          </p>
-
-          <div class="catalog-hero__stats">
-            <div class="hero-stat">
-              <strong data-catalog-total>75</strong>
-              <span>игр в каталоге</span>
-            </div>
-            <div class="hero-stat">
-              <strong>5</strong>
-              <span>категорий</span>
-            </div>
-            <div class="hero-stat">
-              <strong data-catalog-years>2012—2026</strong>
-              <span>годы выхода</span>
-            </div>
+      <div class="container hero-inner">
+        <div class="hero-copy"><div class="nav-lang hero-lang" aria-label="Выберите язык"><button type="button" class="lang-choice" data-lang="ru">Русский</button><button type="button" class="lang-choice" data-lang="en">English</button></div>
+          <div class="eyebrow">RustStoria · база знаний и инструменты</div>
+          <h1>Знай Rust.<br><em>Играй точнее.</em></h1>
+          <p class="hero-lead">Калькуляторы рейда и урона, переработчик, конструктор прицела, база знаний, дерево исследований, коллекции и дневник разработки - всё в одном удобном интерфейсе.</p>
+          <div class="hero-actions">
+            <a class="btn btn-accent" href="wiki.html">Открыть базу знаний</a>
+            <a class="btn" href="#tools">Инструменты</a>
+          </div>
+          <div class="hero-stats" aria-label="Статистика">
+            <div class="hero-stat"><strong>1 099</strong><span>предметов в каталоге с игровыми данными</span></div>
+            <div class="hero-stat"><strong>43</strong><span>монумента с фото и данными о луте</span></div>
+            <div class="hero-stat"><strong>4</strong><span>рабочих инструмента для расчётов и настройки</span></div>
           </div>
         </div>
-
-        <a class="catalog-feature" data-feature-link href="game.html?id=sara">
-          <span class="catalog-feature__label">выбор редакции</span>
-          <h2 data-feature-title>Sara</h2>
-          <p data-feature-tagline>Психологический хоррор о памяти, которая не хочет отпускать.</p>
-          <span class="catalog-feature__meta" data-feature-meta>2025 · ★ 8.4</span>
-          <span class="catalog-feature__cta">Открыть карточку <span aria-hidden="true">→</span></span>
-        </a>
       </div>
     </section>
 
-    <section class="showcase" aria-labelledby="showcase-title">
-      <div class="container showcase__head">
-        <div>
-          <p class="eyebrow"><span class="eyebrow__dot"></span> редакционная витрина</p>
-          <h2 id="showcase-title">Сейчас в фокусе</h2>
-          <p class="showcase__lead">Семь игр, ради которых стоит освободить вечер. Листайте вбок — или доверьтесь таймеру.</p>
+    <section class="section" id="tools">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Инструменты</div>
+          <h2>Калькуляторы и сервисы</h2>
+          <p>Все ключевые инструменты вынесены на отдельные страницы - без перегрузки главной. Быстрый доступ к ним закреплён в верхней панели сайта.</p>
         </div>
-        <div class="showcase__controls">
-          <button class="showcase__arrow" type="button" data-showcase-prev aria-label="Предыдущая игра">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M14.5 5 7.5 12l7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <span class="showcase__counter" data-showcase-counter>01 / 07</span>
-          <button class="showcase__arrow" type="button" data-showcase-next aria-label="Следующая игра">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m9.5 5 7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
+        <div class="card-grid">
+          <a class="tool-card" href="tools/raid.html">
+            <span class="tool-card-media"><img src="assets/shot4.jpg" alt="База под обстрелом" loading="lazy"></span><span class="tool-badge-icon"><img loading="lazy" decoding="async"  src="assets/explosive.timed.png" alt=""></span>
+            <span class="tool-card-body"><span class="tool-card-tag">Инструмент</span><h3>Калькулятор рейда</h3><p>Расчёт взрывчатки, серы и стоимости для стен, дверей и построек.</p></span>
+          </a>
+          <a class="tool-card" href="tools/damage.html">
+            <span class="tool-card-media"><img src="assets/shot2.jpg" alt="Игрок прицеливается из лука" loading="lazy"></span><span class="tool-badge-icon"><img loading="lazy" decoding="async"  src="assets/rifle.ak.png" alt=""></span>
+            <span class="tool-card-body"><span class="tool-card-tag">Инструмент</span><h3>Калькулятор урона</h3><p>Урон, броня, дистанция и попадания: голова, тело, руки и ноги.</p></span>
+          </a>
+          <a class="tool-card tool-card-recycler" href="tools/recycler.html">
+            <span class="tool-card-media"><img src="assets/recycler-monument.svg" alt="Переработчик Rust" loading="lazy"></span><span class="tool-badge-icon"><img loading="lazy" decoding="async"  src="assets/gears.png" alt=""></span>
+            <span class="tool-card-body"><span class="tool-card-tag">Инструмент</span><h3>Переработчик</h3><p>Сколько ресурсов вы получите при переработке компонентов и предметов.</p></span>
+          </a>
+          <a class="tool-card" href="tools/crosshair.html">
+            <span class="tool-card-media"><img src="assets/shot1.jpg" alt="Игроки с оружием Rust" loading="lazy"></span><span class="tool-badge-icon tool-crosshair-icon">+</span>
+            <span class="tool-card-body"><span class="tool-card-tag">Инструмент</span><h3>Конструктор прицела</h3><p>Настройте прицел и скопируйте консольную команду для применения в игре.</p></span>
+          </a>
         </div>
-      </div>
-
-      <div class="showcase__viewport" data-showcase>
-        <div class="showcase__track" data-showcase-track></div>
-      </div>
-      <div class="container showcase__foot">
-        <div class="showcase__progress"><span data-showcase-progress></span></div>
-        <a class="text-link" href="index.html#catalog-anchor">Смотреть весь каталог <span aria-hidden="true">→</span></a>
       </div>
     </section>
 
-    <div class="catalog" id="catalog-anchor">
-      <aside class="catalog-sidebar" data-catalog-sidebar aria-label="Фильтры каталога">
-        <div class="filter-card">
-          <div class="filter-card__head">
-            <h2>Категории</h2>
-            <span class="filter-card__hint">можно несколько</span>
-          </div>
-          <div class="filter-options" data-filter-categories></div>
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">База и медиа</div>
+          <h2>Знания, исследования и обновления</h2>
+          <p>Отдельные разделы для вики, дерева исследований, монументов, скинов и дневника разработки.</p>
         </div>
-
-        <div class="filter-card">
-          <div class="filter-card__head">
-            <h2>По дате выхода</h2>
-          </div>
-          <div class="years" data-filter-years></div>
+        <div class="preview-grid">
+          <article class="preview-card">
+            <a class="preview-card-media" href="wiki.html"><img src="assets/shot8.jpg" alt="База знаний Rust" loading="lazy"></a>
+            <div class="preview-card-body">
+              <h3>База знаний</h3>
+              <p>Предметы, оружие, постройки, электричество, монументы, NPC, ивенты и крафт - с поиском, категориями и подробными карточками.</p>
+              <a class="btn btn-small" href="wiki.html">Открыть вики</a>
+            </div>
+          </article>
+          <article class="preview-card">
+            <a class="preview-card-media" href="tech-tree.html"><img src="assets/tech-tree-teaser.jpg" alt="Дерево исследований Rust" loading="lazy"></a>
+            <div class="preview-card-body">
+              <h3>Дерево исследований</h3>
+              <p>Наглядные ветки чертежей с поиском, масштабированием и отметками уже изученных предметов.</p>
+              <a class="btn btn-small" href="tech-tree.html">Открыть дерево</a>
+            </div>
+          </article>
+          <article class="preview-card">
+            <a class="preview-card-media" href="collections.html"><img src="assets/crystal_hero.jpg" alt="Коллекции и обновления Rust" loading="lazy"></a>
+            <div class="preview-card-body">
+              <h3>Коллекции и обновления</h3>
+              <p>Коллекции скинов, история Twitch Drops и дневник разработки с фотографиями из обновлений Rust.</p>
+              <div style="display:flex;gap:8px;flex-wrap:wrap">
+                <a class="btn btn-small" href="skins.html">Скины</a>
+                <a class="btn btn-small" href="monuments.html">Монументы</a>
+                <a class="btn btn-small" href="outfit-builder.html">Образы</a>
+                <a class="btn btn-small" href="collections.html">Коллекции</a>
+                <a class="btn btn-small btn-ghost" href="updates.html">Обновления</a>
+              </div>
+            </div>
+          </article>
         </div>
+      </div>
+    </section>
 
-        <button class="btn btn--ghost filter-reset" type="button" data-filter-reset>
-          Сбросить фильтры
-        </button>
-      </aside>
-
-      <section class="catalog-main" aria-label="Игры каталога">
-        <div class="catalog-toolbar">
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="panel" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
           <div>
-            <p class="catalog-toolbar__count" data-results-count>Найдено 75 игр</p>
-            <p class="catalog-toolbar__hint">Отобрано вручную: атмосфера, сюжет и кооператив</p>
+            <div class="eyebrow" style="margin-bottom:6px">О проекте</div>
+            <h2 style="font-family:var(--font-display);font-size:30px;text-transform:uppercase;margin-bottom:6px">RustStoria - команда и контакты</h2>
+            <p class="muted" style="max-width:720px;line-height:1.7">Узнайте, кто развивает проект и как с нами связаться. Мы собираем полезные инструменты и актуальные данные по Rust в одном месте.</p>
           </div>
-          <label class="sort-control">
-            <span>Сортировка</span>
-            <select data-sort aria-label="Сортировка игр">
-              <option value="rating">По оценке</option>
-              <option value="new">Сначала новые</option>
-              <option value="old">Сначала старые</option>
-              <option value="title">По названию</option>
-              <option value="steam">По оценке Steam</option>
-            </select>
-          </label>
+          <a class="btn btn-accent" href="about.html">Страница «О нас»</a>
         </div>
-
-        <div class="active-filters" data-active-filters hidden aria-label="Активные фильтры"></div>
-
-        <div class="games-grid" data-games-grid></div>
-
-        <div class="empty-state catalog-empty" data-catalog-empty hidden>
-          <span class="empty-state__icon" aria-hidden="true">⌕</span>
-          <h2 data-empty-title>Под эти фильтры ничего не подходит</h2>
-          <p>Попробуйте убрать год или категорию — в каталоге точно есть что-то ещё.</p>
-          <button class="btn btn--primary" type="button" data-reset-all>Показать все игры</button>
-        </div>
-      </section>
-    </div>
+      </div>
+    </section>
   </main>
 
-  <footer data-site-footer></footer>
+  <div data-site-footer></div>
 
-  <script src="assets/js/data.js?v=20261104f"></script>
-  <script src="assets/js/data-extra.js?v=20261104f"></script>
-  <script src="assets/js/store.js?v=20261104f"></script>
-  <script src="assets/js/common.js?v=20261104f"></script>
-  <script src="assets/js/home.js?v=20261104f"></script>
-  <script src="assets/js/catalog.js?v=20261104f"></script>
+  <script src="js/site-data.js"></script>
+  <script src="js/catalog-data.js"></script>
+  <script src="js/monuments-data.js"></script>
+  <script src="js/wiki-extra.js"></script>
+  <script src="js/site.js"></script>
+  <script src="js/i18n.js"></script>
+
 </body>
 </html>
+

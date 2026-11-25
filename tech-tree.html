@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0f1012" />
+  <title>Дерево исследований - RustStoria</title>
+  <meta name="description" content="Дерево исследований Rust: выберите верстак, изучите чертежи, стоимость в скрапе и структуру прогрессии." />
+  <link rel="icon" href="assets/rust-logo.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800&family=Russo+One&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+  <div data-site-header></div>
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <div class="breadcrumbs"><a href="index.html">Главная</a><span>/</span><span>Дерево исследований</span></div>
+        <h1>Дерево исследований</h1>
+        <p>Интерактивные ветки чертежей: поиск предметов, выделение маршрута, масштаб и отметки уже изученных чертежей.</p>
+      </div>
+    </section>
+    <section class="page-layout">
+      <div class="container">
+        <div class="tech-hud-layout">
+          <aside class="tech-hud-side">
+            <div class="panel">
+              <div class="section-head" style="margin-bottom:12px"><h2 style="font-size:22px">Верстаки</h2><p>Выберите уровень верстака и нажмите на иконку предмета, чтобы посчитать скрап до изучения.</p></div>
+              <div class="tech-wb-list" id="techWbList"></div><div class="rs-historical">Актуально для ноября 2026: после обновления Printed and Polished дерево исследований требует фрагменты, страницы и книги чертежей вместо скрапа. Приведённые числа скрапа - историческая оценка из кэша, НЕ текущая цена изучения. Скрап по-прежнему используется на исследовательском столе.</div><p class="muted" style="font-size:12px;margin-top:12px">Схема и цены взяты из локального кэша. После переработки чертежей в ноябре 2026 года отдельные значения скрапа могут не соответствовать текущей механике.</p>
+            </div>
+            <div class="panel">
+              <div class="stat-card accent"><span>Выбранный предмет</span><strong id="techSelectedName">-</strong></div>
+              <div class="stat-card" style="margin-top:10px"><span>Историческая стоимость в скрапе</span><strong id="techSelectedCost">-</strong></div>
+              <div class="stat-card" style="margin-top:10px"><span>Чертежей в верстаке</span><strong id="techTotalNodes">-</strong></div><label class="tech-learn-row"><input type="checkbox" id="techLearned"> Отметить выбранный предмет изученным</label><div class="muted" id="techLearnSummary" style="font-size:12px;margin-top:8px"></div>
+              <div id="techPath" class="tech-path muted" style="margin-top:12px;font-size:13px;line-height:1.55">Нажмите на предмет на схеме.</div>
+            </div>
+          </aside>
+          <div class="tech-hud-main">
+            <div class="panel" style="margin-bottom:16px">
+              <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px">
+                <div>
+                  <span class="mini-label" id="techRoman">T1</span>
+                  <h2 id="techTitle" style="font-family:var(--font-display);font-size:34px;text-transform:uppercase;line-height:1">Верстак</h2>
+                  <p id="techDesc" class="muted" style="margin-top:6px;max-width:720px">Схема исследований в стиле внутриигрового дерева технологий.</p>
+                </div>
+                <div class="tech-legend">
+                  <span><i class="dot dot-scrap"></i>Стоимость в скрапе</span>
+                  <span><i class="dot dot-path"></i>Путь до выбранного</span>
+                </div>
+              </div>
+            </div>
+            <div class="tech-commands"><div class="tech-searchbox"><input id="techSearch" class="input" type="search" placeholder="Найти чертёж в выбранном верстаке..." aria-label="Найти предмет"></div><div class="tech-zoom-controls"><button id="techZoomOut" type="button" title="Уменьшить">−</button><b id="techZoomVal">100%</b><button id="techZoomIn" type="button" title="Увеличить">+</button><button id="techZoomReset" type="button" title="Сбросить масштаб">1:1</button></div></div><div class="tech-search-results" id="techSearchResults" hidden></div><div class="tech-board-hud" id="techBoard"><div class="empty">Загрузка дерева исследований...</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div data-site-footer></div>
+  <script src="js/site-data.js"></script>
+  <script src="js/catalog-data.js"></script>
+  <script src="js/monuments-data.js"></script>
+  <script src="js/wiki-extra.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/site.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/pages/tech-tree.js"></script>
+</body>
+</html>
+

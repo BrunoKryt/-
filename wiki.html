@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0f1012" />
+  <title>База знаний - RustStoria</title>
+  <meta name="description" content="База знаний RustStoria: предметы, оружие, боеприпасы, постройки, электричество, монументы, NPC, ивенты, временные события и крафт." />
+  <link rel="icon" href="assets/rust-logo.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800&family=Russo+One&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+  <div data-site-header></div>
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <div class="breadcrumbs"><a href="index.html">Главная</a><span>/</span><span>База знаний</span></div>
+        <h1>База знаний</h1>
+        <p>Предметы, оружие, постройки, электричество, ресурсы, монументы, NPC, ивенты, временные события и крафт. Поиск, категории и просмотр карточек в одном месте.</p>
+      </div>
+    </section>
+    <section class="page-layout">
+      <div class="container">
+        <div class="wiki-shell">
+          <aside class="wiki-sidebar" id="wikiSidebar" aria-label="Категории"></aside>
+          <div class="wiki-main">
+            <div class="wiki-toolbar">
+              <input type="text" id="wikiSearch" class="input" placeholder="Поиск по базе знаний..." aria-label="Поиск по базе знаний" />
+              <select id="wikiSort" class="input" style="max-width:220px">
+                <option value="name">Сортировка: по названию</option>
+                <option value="category">По категории</option>
+              </select>
+            </div>
+            <div class="wiki-results-info" id="wikiInfo">Загрузка...</div>
+            <div class="wiki-grid" id="wikiGrid"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="wikiModal" class="modal" hidden>
+    <div class="modal-backdrop" data-close="modal"></div>
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-header">
+        <h3 id="modalTitle">Карточка</h3>
+        <button class="icon-btn" type="button" id="modalClose" aria-label="Закрыть"><svg class="icon"><use href="#i-close"></use></svg></button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <div data-site-footer></div>
+  <script src="js/site-data.js"></script>
+  <script src="js/catalog-data.js"></script><script src="js/catalog-en.js"></script>
+  <script src="js/monuments-data.js"></script>
+  <script src="js/wiki-extra.js"></script>
+  <script src="js/site.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/pages/wiki.js"></script>
+</body>
+</html>
+

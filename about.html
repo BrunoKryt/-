@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0f1012" />
+  <title>О нас - RustStoria</title>
+  <meta name="description" content="Команда RustStoria, контакты и социальные сети проекта." />
+  <link rel="icon" href="assets/rust-logo.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800&family=Russo+One&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+  <div data-site-header></div>
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <div class="breadcrumbs"><a href="index.html">Главная</a><span>/</span><span>О нас</span></div>
+        <h1>О нас</h1>
+        <p>RustStoria - фанатский проект с инструментами, базой знаний и медиа по Rust. Мы развиваем удобный русскоязычный ресурс для игроков и регулярно обновляем материалы.</p>
+      </div>
+    </section>
+
+    <section class="page-layout">
+      <div class="container">
+        <div class="about-hero">
+          <div class="panel">
+            <div class="eyebrow">Команда проекта</div>
+            <h2 style="font-family:var(--font-display);font-size:34px;text-transform:uppercase;line-height:1.05;margin-bottom:10px">Люди, которые делают RustStoria</h2>
+            <p class="muted" style="font-size:15px;max-width:720px">Мы собираем и проверяем игровые данные, развиваем инструменты и поддерживаем актуальность материалов, чтобы игрокам было проще находить информацию и принимать решения в Rust.</p>
+          </div>
+          <div class="panel">
+            <span class="mini-label">Контакты</span>
+            <div class="contact-list" style="margin-top:8px">
+              <div class="contact-item"><svg class="icon"><use href="#i-mail"></use></svg><div><strong style="color:var(--text);display:block">Email</strong><a href="mailto:trofikstli@gmail.com" class="text-link">trofikstli@gmail.com</a></div></div>
+              <div class="contact-item"><svg class="icon"><use href="#i-map"></use></svg><div><strong style="color:var(--text);display:block">Адрес</strong><span>Московская область, г. Подольск, Дрожжино, Южная 7</span></div></div>
+            </div>
+            <hr class="sep" />
+            <span class="mini-label">Социальные сети</span>
+            <div class="social-links-lg" style="margin-top:8px" id="aboutSocials"></div>
+            <p class="muted" style="font-size:12px;margin-top:10px">Discord: <strong style="color:#ddd">andryhabebra</strong></p>
+          </div>
+        </div>
+
+        <section class="section" style="padding:28px 0 0">
+          <div class="section-head">
+            <div class="eyebrow">Наша команда</div>
+            <h2>Состав проекта</h2>
+          </div>
+          <div id="teamGrid" class="team-grid"></div>
+        </section>
+      </div>
+    </section>
+  </main>
+  <div data-site-footer></div>
+  <script src="js/site-data.js"></script>
+  <script src="js/catalog-data.js"></script>
+  <script src="js/monuments-data.js"></script>
+  <script src="js/wiki-extra.js"></script>
+  <script src="js/site.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/pages/about.js"></script>
+</body>
+</html>
+
